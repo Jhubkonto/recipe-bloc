@@ -1,0 +1,10 @@
+body {
+  background: #eee;
+  background-color: #fffadb;
+  background-image: url("https://www.transparenttextures.com/patterns/broken-noise.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+}
