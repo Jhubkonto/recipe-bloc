@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import Header from "./Header";
 
 function App() {
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Recipe Bloc</h1>
-      </header>
+    <div>
+      <Header />
     </div>
   );
 }

@@ -1,10 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: #eee;
-  background-color: #fffadb;
+  background-color: #eef4ed;
   background-image: url("https://www.transparenttextures.com/patterns/broken-noise.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 html {
   font-family: "Poppins", sans-serif;
+}
+
+header {
+  background-color: #a2d729;
+  margin: auto -16px;
+  padding: 10px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  color: #fff;
+  font-weight: 400;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+footer p {
+  color: #ccc;
 }
