@@ -1,42 +1,43 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import Recipe from "./Recipe";
-import CreateArea from "./CreateArea";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import MenuItems from "./Menu/MenuItems";
+import AboutUs from "./Pages/AboutUs";
+import AddRecipe from "./Pages/AddRecipe";
+import MyRecipes from "./Pages/MyRecipes";
 
 function App() {
 
-  const [recipes, setRecipe] = useState([]);
+  const [menuState, setMenuState] = useState(false);
 
-  function addRecipe(newRecipe) {
-    setRecipe(prevRecipes => {
-      return [...prevRecipes, newRecipe];
-    });
-  }
-
-  function deleteRecipe(id) {
-    setRecipe(prevRecipes => {
-      return prevRecipes.filter((recipeItem, index) => {
-        return index !== id;
-      });
-    });
+  function handleMenuClick() {
+    if (menuState === true) {
+      setMenuState(false);
+    } else if (menuState === false) {
+      setMenuState(true);
+    }
   }
 
   return (
     <div>
-      <Header />
-      <CreateArea onAdd={addRecipe} />
-      {recipes.map((recipeItem, index) => {
-        return (
-          <Recipe
-            key={index}
-            id={index}
-            title={recipeItem.title}
-            content={recipeItem.content}
-            onDelete={deleteRecipe}
-          />
-        );
-      })}
+      <Header onChange={handleMenuClick}
+      isOpen={menuState}/>
+      <Router>
+      {menuState && (
+        <div>
+          <MenuItems />
+          </div>
+        )}
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/addrecipe" component={AddRecipe} />
+          <Route path="/myrecipes" component={MyRecipes} />
+          <Route path="/aboutus" component={AboutUs} />
+        </Switch>
+      </Router>
       <Footer />
     </div>
   );

@@ -1,19 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import CreateIcon from '@material-ui/icons/Create';
 import HamburgerMenu from "./Menu/HamburgerMenu";
-import MenuItems from "./Menu/MenuItems";
 
-function Header() {
-
-const [menuState, setMenuState] = useState(false);
-
-  function handleClick() {
-    if (menuState === true) {
-      setMenuState(false);
-    } else if (menuState === false) {
-      setMenuState(true);
-    }
-  }
+function Header(props) {
 
   return (
     <header>
@@ -22,8 +11,8 @@ const [menuState, setMenuState] = useState(false);
     </h1>
     <div className="hamburgerMenu">
       <HamburgerMenu
-        isOpen={menuState}
-        menuClicked={handleClick}
+        isOpen={props.isOpen}
+        menuClicked={(event) => props.onChange(event)}
         width={35}
         height={25}
         strokeWidth={3}
@@ -33,12 +22,6 @@ const [menuState, setMenuState] = useState(false);
         animationDuration={0.5}
     />
     </div>
-
-    {menuState && (
-      <div>
-        <MenuItems />
-        </div>
-      )}
    </header>
  );
 }

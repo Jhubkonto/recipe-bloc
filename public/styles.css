@@ -42,22 +42,23 @@ header .hamburgerMenu {
   z-index: 5;
 }
 
-header .menu {
+.menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: #464655;
-  height: 100%;
+  border-radius: 25px 0 0 25px;
+  height: 75vh;
   text-align: left;
   padding: 2rem;
   position: absolute;
-  top: 0;
+  top: 68px;
   right: 0;
   transition: transform 0.3s ease-in-out;
   z-index: 10;
 }
 
-header .menu p {
+.menu a, h3, ul {
   font-size: 1.5rem;
   text-transform: uppercase;
   padding: 2rem 0;
@@ -66,6 +67,10 @@ header .menu p {
   color: white;
   text-decoration: none;
   transition: color 0.5s linear;
+}
+
+.navLinks {
+  list-style: none;
 }
 
 /************* HEADER SECTION END ************/
@@ -156,3 +161,5 @@ form.create-recipe button {
 }
 
 /************* BODY SECTION END ************/
+
+/************* MENU SECTION ************/
